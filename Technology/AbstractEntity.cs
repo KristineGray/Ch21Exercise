@@ -12,7 +12,7 @@ namespace Technology
         private static int ClassID = 0;
 
         public int ID { get { return _id; } }
-        
+
         public AbstractEntity()
         {
             ClassID++;
