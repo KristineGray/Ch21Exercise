@@ -17,6 +17,7 @@ namespace Technology
 
         public string CheckBattery()
         {
+            Console.WriteLine($"The battery is at {this.BatteryLeft}%");
             return $"The battery is at {this.BatteryLeft}%";
         }
     }

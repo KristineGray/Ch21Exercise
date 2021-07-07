@@ -8,17 +8,24 @@ namespace Technology
 {
     public class SmartPhone : Computer
     {
-        public readonly int PhoneNumber = 1023456789;
+        public static int PhoneNumber { get; set; }
 
-        public SmartPhone(string os, double memory, bool isOn) : base(os, memory, isOn)
+        public SmartPhone(int phoneNumber, string os, double memory, bool isOn) : base(os, memory, isOn)
         {
+            PhoneNumber = phoneNumber;
             this.OpSystem = os;
             this.Memory = memory;
             this.IsOn = isOn;
         }
-        public string MakeCall()
+
+        public int GetPhoneNumber()
         {
-            return $"Making a call from phone number {this.PhoneNumber}...";
+            return PhoneNumber;
+        }
+        public static string MakeCall()
+        {
+            Console.WriteLine($"Making a call from phone number {PhoneNumber}...");
+            return $"Making a call from phone number {PhoneNumber}...";
         }
     }
 }

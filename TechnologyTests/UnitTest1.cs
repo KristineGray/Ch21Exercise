@@ -8,7 +8,7 @@ namespace TechnologyTests
     {
         Computer testComputer = new Computer();
         Laptop testLaptopOne = new Laptop("MacOS", 0.512, true, 55);
-        SmartPhone testSmartPhone = new SmartPhone("AndroidOS", 32, true);
+        SmartPhone testSmartPhone = new SmartPhone(1023456789, "AndroidOS", 32, true);
 
         [TestMethod]
         public void TestComputerCheckPower()
@@ -48,7 +48,6 @@ namespace TechnologyTests
             Assert.AreEqual("The battery is at 55%", testLaptopOne.CheckBattery());
         }
 
-        
         [TestMethod]
         public void TestSmartPhoneMemory()
         {
@@ -58,14 +57,28 @@ namespace TechnologyTests
         [TestMethod]
         public void TestSmartPhoneNumber()
         {
-            Assert.AreEqual(1023456789, testSmartPhone.PhoneNumber);
+            Assert.AreEqual(1023456789, testSmartPhone.GetPhoneNumber());
         }
 
         [TestMethod]
         public void TestSmartPhoneMakeCall()
         {
-            Assert.AreEqual("Making a call from phone number 1023456789...", testSmartPhone.MakeCall());
+            Assert.AreEqual("Making a call from phone number 1023456789...", SmartPhone.MakeCall());
         }
+
+        [TestMethod]
+        public void TestComputerID()
+        {
+            Assert.AreEqual(4 , testComputer.ID);
+        }
+        
+        [TestMethod]
+        public void TestDifferentIDs()
+        {
+            Assert.IsFalse(testComputer.ID == testLaptopOne.ID);
+            Assert.IsFalse(testSmartPhone.ID == testLaptopOne.ID);
+        }
+        
         
     }
 }

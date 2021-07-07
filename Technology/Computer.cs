@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Technology
 {
-    public class Computer
+    public class Computer : AbstractEntity
     {
         public string OpSystem { get; set; }
         public bool IsOn { get; set; }
@@ -21,7 +21,6 @@ namespace Technology
             this.IsOn = isOn;
         }
 
-        
         public void CheckPower()
         {
             if (this.IsOn) Console.WriteLine("This device is on.");
